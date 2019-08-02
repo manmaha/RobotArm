@@ -3,13 +3,14 @@
 from Adafruit_PWM_Servo_Driver import PWM
 import time
 import signal
+import sys
 
 # ===========================================================================
 # Example Code
 # ===========================================================================
 
 # Initialise the PWM device using the default address
-pwm = PWM(0x40)
+pwm = PWM(0x40, debug=False)
 # Note if you'd like more debug output you can instead run:
 #pwm = PWM(0x40, debug=True)
 
@@ -19,7 +20,7 @@ servoMax = 740  # Max pulse length out of 4096
 
 def signal_handler(signum, frame):
         print('You pressed Ctrl+C!')
-        sys.exit(0)  
+        sys.exit(0)
 
 def setServoPulse(channel, pulse):
   pulseLength = 1000000                   # 1,000,000 us per second
@@ -32,7 +33,7 @@ def setServoPulse(channel, pulse):
   pwm.setPWM(channel, 0, pulse)
 
 signal.signal(signal.SIGINT, signal_handler)
-channels = range(0,8) 
+channels = range(4,10)
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
 #while (True):
 # for channel in channels:
@@ -49,8 +50,3 @@ for channel in channels:
 	time.sleep(1)
 	pwm.setPWM(channel, 0, servoMid)
 	time.sleep(1)
-  
-
-  
-
-

@@ -41,7 +41,7 @@ joint_1.oninput = function() {
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[0]}}"+"&value="+joint_1.value;
+  var url = "http://robotarm.local:5000/read_joint_val?joint={{joint_list[0]}}&value="+joint_1.value;
   xhttp.open("GET", url, true);
   xhttp.send();
 };
@@ -56,7 +56,7 @@ joint_2.oninput = function() {
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[1]}}"+"&value="+joint_2.value;
+  var url = "http://robotarm.local:5000/read_joint_val?joint="+"{{joint_list[1]}}"+"&value="+joint_2.value;
   xhttp.open("GET", url, true);
   xhttp.send();
 };
@@ -72,7 +72,7 @@ joint_3.oninput = function() {
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[2]}}"+"&value="+joint_3.value;
+  var url = "http://robotarm.local:5000/read_joint_val?joint="+"{{joint_list[2]}}"+"&value="+joint_3.value;
   xhttp.open("GET", url, true);
   xhttp.send();
 };
@@ -87,13 +87,13 @@ joint_4.oninput = function() {
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[3]}}"+"&value="+joint_4.value;
+  var url = "http://robotarm.local:5000/read_joint_val?joint="+"{{joint_list[3]}}"+"&value="+joint_4.value;
   xhttp.open("GET", url, true);
   xhttp.send();
 };
 
 var joint_5 = document.getElementById("joint_5");
-var value4_output = document.getElementById("value5_output");
+var value5_output = document.getElementById("value5_output");
 value5_output.innerHTML = joint_5.value;
 joint_5.oninput = function() {
   value5_output.innerHTML = joint_5.value;
@@ -102,13 +102,13 @@ joint_5.oninput = function() {
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[4]}}"+"&value="+joint_5.value;
+  var url = "http://robotarm.local:5000/read_joint_val?joint="+"{{joint_list[4]}}"+"&value="+joint_5.value;
   xhttp.open("GET", url, true);
   xhttp.send();
 };
 
 var joint_6 = document.getElementById("joint_6");
-var value4_output = document.getElementById("value6_output");
+var value6_output = document.getElementById("value6_output");
 value6_output.innerHTML = joint_6.value;
 joint_6.oninput = function() {
   value6_output.innerHTML = joint_6.value;
@@ -117,7 +117,7 @@ joint_6.oninput = function() {
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[5]}}"+"&value="+joint_6.value;
+  var url = "http://robotarm.local:5000/read_joint_val?joint="+"{{joint_list[5]}}"+"&value="+joint_6.value;
   xhttp.open("GET", url, true);
   xhttp.send();
 };

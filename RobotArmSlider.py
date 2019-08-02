@@ -20,10 +20,10 @@ def main():
     def cleanup_arm():
         pass
     parser = argparse.ArgumentParser(description='Web Driver for RoboKar')
-    parser.add_argument('--hostname', default='0.0.0.0')
+    parser.add_argument('--hostname', default='robotarm.local')
     parser.add_argument('--port', default=5000)
-    parser.add_argument('--testing',default=False)
-    parser.add_argument('--onPi', default=False)
+    parser.add_argument('--testing',default=True)
+    parser.add_argument('--onPi', default=True)
     args = parser.parse_args()
     url = 'http://'+args.hostname+':'+str(args.port)+'/'
     print(url)
@@ -39,7 +39,7 @@ def main():
         kit = ServoKit(channels=16)
         #Setup channels
         for i in range(len(channel_list)):
-            kit.servo[channel].actuation_range = params['actuation_range'][i]
+            kit.servo[channel_list[i]].actuation_range = params['actuation_range'][i]
 
     app = Flask(__name__)
 
