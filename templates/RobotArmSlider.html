@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>RobotArm Browser Control</h1>
+<h2></h2>
+<p>Drag the sliders to Send</p>
+
+<div id="slidecontainer">
+  <p>{{joint_list[0]}}: <span id="value1_output"></span></p>
+  <input type="range" min="0" max={{actuation_range_list[0]}} value="0.00" id=joint_1 name=joint_1>
+  <p>{{joint_list[1]}}: <span id="value2_output"></span></p>
+  <input type="range" min="0" max={{actuation_range_list[1]}} value="0.00" id=joint_2 name=joint_2>
+  <p>{{joint_list[2]}}: <span id="value3_output"></span></p>
+  <input type="range" min="0" max={{actuation_range_list[2]}} value="0.00" id=joint_3 name=joint_3>
+  <p>{{joint_list[3]}}: <span id="value4_output"></span></p>
+  <input type="range" min="0" max={{actuation_range_list[3]}} value="0.00" id=joint_4 name=joint_4>
+  <p>{{joint_list[4]}}: <span id="value5_output"></span></p>
+  <input type="range" min="0" max={{actuation_range_list[4]}} value="0.00" id=joint_5 name=joint_5>
+  <p>{{joint_list[5]}}: <span id="value6_output"></span></p>
+  <input type="range" min="0" max={{actuation_range_list[5]}} value="0.00" id=joint_6 name=joint_6>
+
+
+</div>
+  <p></p>
+  <p></p>
+  <input type="button" value='STOP ROBOT' id="stop_button">
+  <p></p>
+  <p></p>
+  <input type="button" value='EXIT ROBOT' id="exit_button">
+
+<script>
+
+var joint_1 = document.getElementById("joint_1");
+var value1_output = document.getElementById("value1_output");
+value1_output.innerHTML = joint_1.value;
+joint_1.oninput = function() {
+  value1_output.innerHTML = joint_1.value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[0]}}"+"&value="+joint_1.value;
+  xhttp.open("GET", url, true);
+  xhttp.send();
+};
+
+var joint_2 = document.getElementById("joint_2");
+var value2_output = document.getElementById("value2_output");
+value2_output.innerHTML = joint_2.value;
+joint_2.oninput = function() {
+  value2_output.innerHTML = joint_2.value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[1]}}"+"&value="+joint_2.value;
+  xhttp.open("GET", url, true);
+  xhttp.send();
+};
+
+
+var joint_3 = document.getElementById("joint_3");
+var value3_output = document.getElementById("value3_output");
+value3_output.innerHTML = joint_3.value;
+joint_3.oninput = function() {
+  value3_output.innerHTML = joint_3.value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[2]}}"+"&value="+joint_3.value;
+  xhttp.open("GET", url, true);
+  xhttp.send();
+};
+
+var joint_4 = document.getElementById("joint_4");
+var value4_output = document.getElementById("value4_output");
+value4_output.innerHTML = joint_4.value;
+joint_4.oninput = function() {
+  value4_output.innerHTML = joint_4.value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[3]}}"+"&value="+joint_4.value;
+  xhttp.open("GET", url, true);
+  xhttp.send();
+};
+
+var joint_5 = document.getElementById("joint_5");
+var value4_output = document.getElementById("value5_output");
+value5_output.innerHTML = joint_5.value;
+joint_5.oninput = function() {
+  value5_output.innerHTML = joint_5.value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[4]}}"+"&value="+joint_5.value;
+  xhttp.open("GET", url, true);
+  xhttp.send();
+};
+
+var joint_6 = document.getElementById("joint_6");
+var value4_output = document.getElementById("value6_output");
+value6_output.innerHTML = joint_6.value;
+joint_6.oninput = function() {
+  value6_output.innerHTML = joint_6.value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  var url = "http://0.0.0.0:5000/read_joint_val?joint="+"{{joint_list[5]}}"+"&value="+joint_6.value;
+  xhttp.open("GET", url, true);
+  xhttp.send();
+};
+
+var stop_button = document.getElementById("stop_button");
+stop_button.onclick = function() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+
+  var url = "http://robotarm.local:5000/stop";
+  xhttp.open("GET", url, true);
+  xhttp.send();
+  location.href = url;
+};
+
+exit_button.onclick = function() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+
+  var url = "http://robotarm.local:5000/exit";
+  xhttp.open("GET", url, true);
+  xhttp.send();
+  location.href = url;
+};
+</script>
+
+</body>
+</html>
