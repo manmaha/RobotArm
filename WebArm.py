@@ -23,7 +23,8 @@ def main():
     url = 'http:/'+args.hostname+':'+str(args.port)+'/'
     print(url)
     params = load(open('WebParams.yaml').read(), Loader=Loader)
-
+#joint_list = params['joint_list']
+#channel_list = params['channel_list']
 
     kit = ServoKit(channels=16)
 
